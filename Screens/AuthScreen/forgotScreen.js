@@ -7,7 +7,8 @@ import DatePicker from "react-native-datepicker";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 import location from "../../assets/locations.png";
 import global from "../../global";
-import { LinearGradient } from "expo-linear-gradient";
+import GradientButton from "react-native-gradient-buttons";
+
 
 export default class forgotScreen extends Component {
   static navigationOptions = {
@@ -64,15 +65,20 @@ export default class forgotScreen extends Component {
           />
         </View>
         <View>
-          <Button
-            containerStyle={styles.buttonContainer}
-            buttonStyle={styles.buttonStyle}
-            // loading={this.state.buttonLoading}
-            title="Reset Password"
-            titleStyle={styles.buttonTitle}
-            TouchableComponent={TouchableOpacity}
-            // onPress={() => this.props.navigation.navigate("loginScreen")}
-          />
+        <GradientButton
+              style={{ marginTop: 50, alignSelf: "center" }}
+              text="Reset Password"
+              textStyle={{ fontSize: 16 }}
+              gradientBegin="#0EF700"
+              gradientEnd="#087407"
+              gradientDirection="diagonal"
+              height={50}
+              width={300}
+              radius={26}
+              impact
+              impactStyle="Light"
+              onPressAction={() => this.props.navigation.navigate("Login")}
+            />
         </View>
       </View>
     );

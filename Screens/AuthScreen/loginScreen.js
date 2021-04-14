@@ -10,6 +10,7 @@ import {
 } from "react-native";
 import logo from "../../assets/logo.png";
 import { Button, Input, Overlay, Divider } from "react-native-elements";
+import GradientButton from "react-native-gradient-buttons";
 
 LogBox.ignoreAllLogs();
 // import PasswordInputText from "react-native-hide-show-password-input";
@@ -71,15 +72,29 @@ export default class loginScreen extends Component {
           <Text style={styles.forgotText}>Forgot Password ?</Text>
         </TouchableOpacity>
         <View>
-          <Button
+        <GradientButton
+              style={{ marginTop: 50, alignSelf: "center" }}
+              text="Sign in"
+              textStyle={{ fontSize: 16 }}
+              gradientBegin="#0EF700"
+              gradientEnd="#087407"
+              gradientDirection="diagonal"
+              height={50}
+              width={300}
+              radius={26}
+              impact
+              impactStyle="Light"
+              onPressAction={() => this.props.navigation.navigate("App")}
+            />
+          {/* <Button
             containerStyle={styles.buttonContainer}
             buttonStyle={styles.buttonStyle}
             // loading={this.state.buttonLoading}
             title="Sign in"
             titleStyle={styles.buttonTitle}
             TouchableComponent={TouchableOpacity}
-            onPress={() => this.props.navigation.navigate("Home")}
-          />
+            onPress={() => this.props.navigation.navigate("App")}
+          /> */}
         </View>
         <View style={styles.dividerContainer}>
           <Divider style={styles.divider} />

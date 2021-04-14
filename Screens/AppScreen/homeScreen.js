@@ -120,10 +120,10 @@ export default class homeScreen extends Component {
             <View style={styles.iconContaier}>
               <View style={{ width: 40 }}>
                 <TouchableOpacity
-                  onPress={() => this.props.navigation.navigate("Home")}
+                  onPress={() => this.props.navigation.openDrawer()}
                 >
                   <Image
-                    source={global.ASSETS.BACK}
+                    source={global.ASSETS.MENU}
                     style={{
                       width: 20,
                       height: 26,
@@ -294,9 +294,27 @@ export default class homeScreen extends Component {
                           </View>
                         </View> */}
                       </View>
-                      <View style={styles.detailsContainer1}>
+                      {this.state.selected=="1"? <View style={{flexDirection:"row",justifyContent:"space-evenly"}}>
+                        <View style={styles.detailsContainer2}>
                         <TouchableOpacity
                           onPress={() => this.props.navigation.navigate("")}
+                        >
+                          <Text style={styles.detailsText1}>Accept</Text>
+                        </TouchableOpacity>
+                      </View>
+                      <View style={styles.detailsContainer2}>
+                        <TouchableOpacity
+                          onPress={() => this.props.navigation.navigate("")}
+                        >
+                          <Text style={styles.detailsText1}>Decline</Text>
+                        </TouchableOpacity>
+                      </View> 
+                      </View>:null  }
+                     
+                     
+                      <View style={styles.detailsContainer1}>
+                        <TouchableOpacity
+                          onPress={() => this.props.navigation.navigate("Details")}
                         >
                           <Text style={styles.detailsText1}>View Details</Text>
                         </TouchableOpacity>
@@ -665,5 +683,13 @@ const styles = StyleSheet.create({
     // marginHorizontal: 10,
     marginVertical: 5,
     marginLeft: -8,
+  },
+  detailsContainer2: {
+    borderColor: "green",
+    borderWidth: 1,
+    borderRadius: 40,
+    width: 100,
+    marginVertical: 10,
+    
   },
 });
